@@ -14,6 +14,8 @@ export interface BusinessData {
   name: string;
   tagline: string;
   accent: string;
+  heroImage: string;
+  cardImage: string;
   description: string[];
   metrics: BusinessMetric[];
   services: BusinessService[];
@@ -29,6 +31,8 @@ export const businesses: Record<string, BusinessData> = {
     name: "TEHMAS",
     tagline: "Промислове будівництво під ключ",
     accent: "#E8572A",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80",
+    cardImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=75",
     description: [
       "TEHMAS — флагманський бізнес ICG. Від промислового будівництва під ключ до парку з 40+ одиниць власної спецтехніки. 120+ об'єктів здано з 2009 року.",
       "Три напрямки: генеральний підряд будівництва, оренда спецтехніки з оператором та паливом, мобільна піскоструйна обробка та антикорозійний захист за ISO 8501 / ISO 12944.",
@@ -65,6 +69,8 @@ export const businesses: Record<string, BusinessData> = {
     name: "Grand Pellets",
     tagline: "Сертифіковані паливні пелети з України",
     accent: "#4A8C3F",
+    heroImage: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1920&q=80",
+    cardImage: "https://images.unsplash.com/photo-1565793298746-d0b6efda3a5e?w=800&q=75",
     description: [
       "Grand Pellets — виробництво та експорт сертифікованих паливних пелет. ENplus A1/A2, FSC, DIN. 8+ років у деревообробній промисловості.",
       "100% деревина без хімічних домішок. Європейське обладнання: гранулятор, подрібнювач, аеродинамічна сушарка. Власна лабораторія контролю якості.",
@@ -101,6 +107,8 @@ export const businesses: Record<string, BusinessData> = {
     name: "The Roof",
     tagline: "Ексклюзивний брокеридж комерційної нерухомості",
     accent: "#D4A843",
+    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80",
+    cardImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=75",
     description: [
       "The Roof — агентство комерційної нерухомості у структурі ICG. Ексклюзивний брокеридж, управління об'єктами та інвестиційний консалтинг.",
       "Ключовий об'єкт — Gate One Brovary: логістичний комплекс класу A+ на трасі E95. Ексклюзивний лістинг та повне управління об'єктом.",
@@ -134,6 +142,8 @@ export const businesses: Record<string, BusinessData> = {
     name: "Захистбуд",
     tagline: "Сировинні рішення для промисловості",
     accent: "#8B6E4E",
+    heroImage: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&q=80",
+    cardImage: "https://images.unsplash.com/photo-1570616969692-54d6ba3d0397?w=800&q=75",
     description: [
       "Захистбуд — ексклюзивний постачальник індивідуальних сировинних рішень для будівельних та виробничих компаній. Власний видобуток, сучасні технології, сертифікована продукція.",
       "Кар'єр у Ясногородці, Київська область. Виробничі потужності — 2,2 млн тонн на рік. 600 тис. тонн готової продукції на складах.",

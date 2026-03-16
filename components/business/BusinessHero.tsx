@@ -1,7 +1,6 @@
 "use client";
 
-import { BlueprintGrid } from "@/components/ui/BlueprintGrid";
-import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import Image from "next/image";
 import { DimensionLine } from "@/components/ui/DimensionLine";
 import type { BusinessData } from "@/content/businesses";
 
@@ -11,13 +10,22 @@ interface BusinessHeroProps {
 
 export function BusinessHero({ business }: BusinessHeroProps) {
   return (
-    <section className="relative flex min-h-[70vh] items-end overflow-hidden bg-bg-primary pb-16 pt-32 md:pb-24 md:pt-40">
-      <BlueprintGrid />
-      <NoiseOverlay />
+    <section className="relative flex min-h-[70vh] items-end overflow-hidden pb-16 pt-32 md:pb-24 md:pt-40">
+      {/* Background photo */}
+      <Image
+        src={business.heroImage}
+        alt={business.name}
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/60 to-[#0f0f0f]/30" />
 
       {/* Accent line top */}
       <div
-        className="absolute left-0 top-0 h-1 w-full"
+        className="absolute left-0 top-0 z-10 h-1 w-full"
         style={{ backgroundColor: business.accent }}
       />
 
@@ -45,11 +53,24 @@ export function BusinessHero({ business }: BusinessHeroProps) {
           {business.tagline}
         </p>
 
+        {/* Quick metrics */}
         <div
-          className="mt-8 max-w-sm"
-          style={{ animation: "fadeIn 0.6s var(--ease-heavy) 0.7s both" }}
+          className="mt-10 flex flex-wrap gap-8"
+          style={{ animation: "fadeIn 0.8s var(--ease-heavy) 0.7s both" }}
         >
-          <DimensionLine label={business.metrics[0]?.label} />
+          {business.metrics.slice(0, 3).map((m) => (
+            <div key={m.label}>
+              <span className="font-display text-2xl text-text-primary">
+                {m.value}
+                <span className="font-mono text-sm text-text-muted">
+                  {m.unit}
+                </span>
+              </span>
+              <p className="mt-1 font-mono text-xs text-text-muted">
+                {m.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

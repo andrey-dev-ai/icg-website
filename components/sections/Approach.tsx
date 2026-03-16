@@ -1,76 +1,77 @@
 "use client";
 
+import Image from "next/image";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 const PRINCIPLES = [
   {
     id: "01",
     title: "Вертикальна інтеграція",
-    text: "Від видобутку сировини до здачі об'єкта — ми контролюємо кожен етап. Захистбуд видобуває, TEHMAS будує, The Roof здає.",
+    text: "Від видобутку сировини до здачі об'єкта — ми контролюємо кожен етап.",
+    accent: "#E8572A",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=75",
   },
   {
     id: "02",
     title: "Власні ресурси",
-    text: "40+ одиниць техніки, власний кар'єр, лабораторія контролю якості. Не залежимо від субпідрядників — працюємо своїми силами.",
+    text: "40+ одиниць техніки, власний кар'єр, лабораторія контролю якості.",
+    accent: "#D4A843",
+    image: "https://images.unsplash.com/photo-1570616969692-54d6ba3d0397?w=600&q=75",
   },
   {
     id: "03",
     title: "Міжнародний стандарт",
-    text: "ENplus A1, ISO 8501, ISO 12944 — кожен бізнес сертифікований за міжнародними стандартами. Від Сумщини до Європи.",
+    text: "ENplus A1, ISO 8501, ISO 12944 — кожен бізнес сертифікований.",
+    accent: "#4A8C3F",
+    image: "https://images.unsplash.com/photo-1565793298746-d0b6efda3a5e?w=600&q=75",
   },
 ];
 
 export function Approach() {
   return (
-    <section className="bg-bg-primary py-24 md:py-32">
+    <section className="bg-bg-light py-24 md:py-32">
       <div className="mx-auto max-w-[1440px] px-6 md:px-20">
         <RevealOnScroll>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-text-muted">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-text-on-light-muted">
             Підхід
           </p>
-          <h2 className="mt-6 font-display text-3xl text-text-primary md:text-4xl">
+          <h2 className="mt-4 font-display text-3xl text-text-on-light md:text-4xl">
             Як ми працюємо
           </h2>
         </RevealOnScroll>
 
-        <div className="mt-16 space-y-0">
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {PRINCIPLES.map((p, i) => (
             <RevealOnScroll key={p.id} delay={i * 0.15}>
-              <div
-                className={`relative border-t border-line py-12 md:py-16 ${
-                  i % 2 === 1 ? "md:ml-[16.66%]" : ""
-                } ${i === 2 ? "md:ml-[8.33%]" : ""}`}
-              >
-                <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-12">
-                  {/* Number */}
-                  <span className="font-mono text-4xl text-line md:text-5xl">
-                    {p.id}
-                  </span>
-
-                  <div className="max-w-lg">
-                    {/* Title */}
-                    <h3 className="font-display text-xl text-text-primary md:text-2xl">
-                      {p.title}
-                    </h3>
-                    {/* Text */}
-                    <p className="mt-4 font-body text-sm font-light leading-relaxed text-text-secondary md:text-base">
-                      {p.text}
-                    </p>
-                  </div>
+              <div className="group overflow-hidden bg-white transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+                {/* Image */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
                 </div>
 
-                {/* Accent line */}
+                {/* Accent strip */}
                 <div
-                  className="absolute left-0 top-0 h-[2px] w-12"
-                  style={{
-                    backgroundColor:
-                      i === 0
-                        ? "var(--accent-primary)"
-                        : i === 1
-                          ? "var(--accent-secondary)"
-                          : "var(--accent-safety)",
-                  }}
+                  className="h-1"
+                  style={{ backgroundColor: p.accent }}
                 />
+
+                {/* Content */}
+                <div className="p-6 md:p-8">
+                  <span className="font-mono text-xs text-text-on-light-muted">
+                    {p.id}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl text-text-on-light">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 font-body text-sm font-light leading-relaxed text-text-on-light-secondary">
+                    {p.text}
+                  </p>
+                </div>
               </div>
             </RevealOnScroll>
           ))}

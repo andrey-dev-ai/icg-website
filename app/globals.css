@@ -24,6 +24,24 @@
   --accent-secondary: #d4a843;
   --accent-safety: #f7b731;
 
+  /* Light surface */
+  --bg-light: #f5f0eb;
+  --bg-light-secondary: #ebe5dd;
+  --text-on-light: #1a1a1a;
+  --text-on-light-secondary: #5c5650;
+  --text-on-light-muted: #8a8480;
+  --line-on-light: #d4cfc9;
+
+  /* Business accents */
+  --accent-tehmas: #e8572a;
+  --accent-grand-pellets: #4a8c3f;
+  --accent-the-roof: #d4a843;
+  --accent-zahistbud: #8b6e4e;
+
+  /* Overlay */
+  --overlay-dark: rgba(15, 15, 15, 0.7);
+  --overlay-darker: rgba(15, 15, 15, 0.85);
+
   /* Utility */
   --line-color: #444444;
   --line-accent: #e8572a;
@@ -51,6 +69,20 @@
   --color-accent-safety: var(--accent-safety);
   --color-line: var(--line-color);
   --color-line-accent: var(--line-accent);
+
+  /* Light surface */
+  --color-bg-light: var(--bg-light);
+  --color-bg-light-secondary: var(--bg-light-secondary);
+  --color-text-on-light: var(--text-on-light);
+  --color-text-on-light-secondary: var(--text-on-light-secondary);
+  --color-text-on-light-muted: var(--text-on-light-muted);
+  --color-line-on-light: var(--line-on-light);
+
+  /* Business accents */
+  --color-accent-tehmas: var(--accent-tehmas);
+  --color-accent-grand-pellets: var(--accent-grand-pellets);
+  --color-accent-the-roof: var(--accent-the-roof);
+  --color-accent-zahistbud: var(--accent-zahistbud);
 
   /* Fonts */
   --font-display: var(--font-display);

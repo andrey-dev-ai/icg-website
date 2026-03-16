@@ -2,7 +2,6 @@
 
 import { CountUp } from "@/components/ui/CountUp";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { BlueprintGrid } from "@/components/ui/BlueprintGrid";
 
 const METRICS = [
   { end: 2200000, suffix: " т/рік", label: "Обсяг видобутку", separator: " " },
@@ -13,39 +12,31 @@ const METRICS = [
 
 export function Scale() {
   return (
-    <section className="relative overflow-hidden bg-bg-primary py-24 md:py-40">
-      <BlueprintGrid />
-
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-20">
+    <section className="bg-bg-light py-24 md:py-32">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-20">
         <RevealOnScroll>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-text-muted">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-text-on-light-muted">
             Масштаб
           </p>
+          <h2 className="mt-4 font-display text-3xl text-text-on-light md:text-4xl">
+            Цифри, що говорять
+          </h2>
         </RevealOnScroll>
 
-        {/* Metrics grid — asymmetric */}
-        <div className="mt-16 grid grid-cols-1 gap-16 sm:grid-cols-2 md:gap-x-24 md:gap-y-24">
+        <div className="mt-16 grid grid-cols-2 gap-8 md:gap-12 lg:grid-cols-4">
           {METRICS.map((metric, i) => (
-            <RevealOnScroll key={metric.label} delay={i * 0.15}>
-              <div
-                className={`${
-                  i % 2 === 1 ? "md:mt-12" : ""
-                }`}
-              >
-                <div className="flex items-baseline">
-                  <CountUp
-                    end={metric.end}
-                    suffix={metric.suffix}
-                    separator={metric.separator || " "}
-                    className="font-display text-5xl text-text-primary md:text-7xl lg:text-8xl"
-                    duration={metric.end > 10000 ? 3000 : 2000}
-                  />
-                </div>
-                <p className="mt-4 font-body text-sm text-text-secondary md:text-base">
+            <RevealOnScroll key={metric.label} delay={i * 0.12}>
+              <div className="border-t-2 border-accent-primary pt-6">
+                <CountUp
+                  end={metric.end}
+                  suffix={metric.suffix}
+                  separator={metric.separator || " "}
+                  className="font-display text-3xl text-text-on-light md:text-4xl lg:text-5xl"
+                  duration={metric.end > 10000 ? 3000 : 2000}
+                />
+                <p className="mt-3 font-body text-sm text-text-on-light-secondary">
                   {metric.label}
                 </p>
-                {/* Accent line under metric */}
-                <div className="mt-4 h-px w-16 bg-accent-primary opacity-40" />
               </div>
             </RevealOnScroll>
           ))}
