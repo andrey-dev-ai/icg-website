@@ -4,6 +4,8 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { instrumentSerif, ibmPlexSans, ibmPlexMono } from "@/lib/fonts";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -38,7 +40,9 @@ export default async function LocaleLayout({
         className={`${instrumentSerif.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+          <Header />
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
