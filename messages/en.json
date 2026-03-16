@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "ICG — Investment & Commercial Group",
+    "description": "Industrial construction, logistics, energy, real estate and mining — four divisions with a unified quality standard."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "businesses": "Businesses",
+    "contact": "Contact"
+  },
+  "hero": {
+    "label": "ICG GROUP",
+    "headline": "We Build.\nWe Protect.\nWe Create.",
+    "sub": "ICG Investment & Commercial Group. Industrial construction, logistics, energy, real estate and mining — four divisions with a unified quality standard.",
+    "established": "EST. 2000"
+  },
+  "businesses": {
+    "title": "Portfolio",
+    "count": "4 businesses",
+    "tehmas": {
+      "name": "TEHMAS",
+      "desc": "Industrial Construction · Heavy Equipment · Sandblasting"
+    },
+    "grandPellets": {
+      "name": "Grand Pellets",
+      "desc": "Fuel Pellets · ENplus A1/A2 · EU Export"
+    },
+    "theRoof": {
+      "name": "The Roof",
+      "desc": "Commercial Real Estate Agency"
+    },
+    "zahistbud": {
+      "name": "Zahistbud",
+      "desc": "Sand, Clay, Gravel Mining · 2.2M tons/year"
+    }
+  },
+  "scale": {
+    "title": "Scale",
+    "metrics": {
+      "extraction": { "value": "2 200 000", "suffix": "t/year", "label": "Annual extraction volume" },
+      "objects": { "value": "120", "suffix": "+", "label": "Industrial objects completed" },
+      "countries": { "value": "5", "suffix": "+", "label": "Export countries" },
+      "machinery": { "value": "40", "suffix": "+", "label": "Units of own machinery" }
+    }
+  },
+  "about": {
+    "title": "About the Group",
+    "text": "ICG Investment & Commercial Group unites four business directions at the intersection of industry, real estate, and energy. TEHMAS is our flagship: from turnkey industrial construction to a fleet of 40+ units of own machinery. Grand Pellets exports certified fuel pellets to five EU countries. The Roof manages commercial real estate through exclusive brokerage. Zahistbud supplies industry with raw materials — sand, clay, gravel, kaolin. Each business — its own expertise, shared DNA of reliability."
+  },
+  "gateOne": {
+    "label": "Flagship Project",
+    "title": "Gate One Brovary",
+    "desc": "A+ class logistics complex on the E95 highway. 7,000 m², built by TEHMAS in 36 months. Exclusive broker — The Roof.",
+    "builtBy": "Built by TEHMAS",
+    "managedBy": "Managed by The Roof"
+  },
+  "cta": {
+    "title": "Let's discuss your project",
+    "button": "Get in touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "address": "Kyiv, V. Lobanovskyi Ave., 56/21",
+    "selectBusiness": "Select division"
+  },
+  "footer": {
+    "rights": "© {year} ICG. All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}

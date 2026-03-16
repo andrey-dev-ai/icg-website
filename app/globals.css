@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/* ============================================
+   ICG Design System — Industrial Brutalism
+   ============================================ */
+
+:root {
+  /* Background — dark concrete */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-elevated: #2e2e2e;
+
+  /* Surface — concrete textures */
+  --surface-rough: #333333;
+  --surface-polished: #3a3a3a;
+
+  /* Text */
+  --text-primary: #f5f0eb;
+  --text-secondary: #a8a29e;
+  --text-muted: #6b6560;
+
+  /* Accents */
+  --accent-primary: #e8572a;
+  --accent-secondary: #d4a843;
+  --accent-safety: #f7b731;
+
+  /* Utility */
+  --line-color: #444444;
+  --line-accent: #e8572a;
+  --grid-color: rgba(255, 255, 255, 0.03);
+
+  /* Easing */
+  --ease-heavy: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing */
+  --space-unit: 8px;
+}
+
+@theme inline {
+  /* Colors */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface-rough: var(--surface-rough);
+  --color-surface-polished: var(--surface-polished);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-safety: var(--accent-safety);
+  --color-line: var(--line-color);
+  --color-line-accent: var(--line-accent);
+
+  /* Fonts */
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  /* Font sizes — modular scale 1.333 (perfect fourth) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.333rem;
+  --text-xl: 1.777rem;
+  --text-2xl: 2.369rem;
+  --text-3xl: 3.157rem;
+  --text-4xl: 4.209rem;
+  --text-5xl: 5.61rem;
+}
+
+/* ============================================
+   Base styles
+   ============================================ */
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body), "IBM Plex Sans", sans-serif;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* ============================================
+   Hero CSS Animations (no JS dependency for ATF)
+   ============================================ */
+
+@keyframes clipRevealUp {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawLineHorizontal {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
