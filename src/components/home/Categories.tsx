@@ -283,8 +283,8 @@ export default function Categories() {
               }}
               className="group block text-center cursor-pointer"
               style={{
-                background: "rgba(160, 170, 195, 0.08)",
-                border: "1px solid rgba(160, 170, 195, 0.1)",
+                background: "rgba(160, 170, 195, 0.03)",
+                border: "1px solid rgba(160, 170, 195, 0.05)",
                 borderRadius: 14,
                 padding: "clamp(24px, 4vw, 28px) clamp(16px, 3vw, 20px) clamp(20px, 3vw, 24px)",
                 transition: "all 0.4s cubic-bezier(.4, 0, .2, 1)",

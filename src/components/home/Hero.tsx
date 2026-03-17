@@ -10,7 +10,6 @@ import IcgLogo from "@/components/ui/IcgLogo";
 
 import Metrics from "./Metrics";
 import Categories from "./Categories";
-import FooterBar from "./FooterBar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -304,7 +303,7 @@ export default function Hero() {
             letterSpacing: "0.02em",
           }}
         >
-          Кожна інвестиція — це точний результат
+          Ресурси стають активами. Ідеї — працюючим бізнесом.
         </p>
       </MotionFadeUp>
 
@@ -316,9 +315,35 @@ export default function Hero() {
       {/* Categories */}
       <Categories />
 
-
-      {/* Footer bar */}
-      <FooterBar />
+      {/* Footer: contact pill + copyright — absolute bottom */}
+      <div className="absolute bottom-5 left-0 right-0 flex flex-col items-center gap-2">
+        <a
+          href="/contacts"
+          className="font-light uppercase rounded-full transition-all duration-400 hover:border-[rgba(184,154,90,0.35)] hover:text-[var(--gold-200)]"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "clamp(0.75rem, 1vw, 0.9rem)",
+            letterSpacing: "0.2em",
+            color: "var(--gold-100)",
+            border: "1px solid rgba(184,154,90,0.25)",
+            padding: "8px 32px",
+          }}
+        >
+          Контакти
+        </a>
+        <span
+          className="font-light"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "0.7rem",
+            letterSpacing: "0.08em",
+            color: "var(--text-tertiary)",
+            opacity: 0.4,
+          }}
+        >
+          © {new Date().getFullYear()} ICG
+        </span>
+      </div>
     </section>
   );
 }
