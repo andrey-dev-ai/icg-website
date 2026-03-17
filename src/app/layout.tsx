@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant, Raleway } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/providers/LenisProvider";
+import LangProvider from "@/providers/LangProvider";
 import StarfieldCanvas from "@/components/ui/StarfieldCanvas";
 
 const cormorant = Cormorant({
@@ -34,8 +35,10 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${raleway.variable} antialiased`}
       >
-        <StarfieldCanvas />
-        <LenisProvider>{children}</LenisProvider>
+        <LangProvider>
+          <StarfieldCanvas />
+          <LenisProvider>{children}</LenisProvider>
+        </LangProvider>
       </body>
     </html>
   );
