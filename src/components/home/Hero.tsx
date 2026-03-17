@@ -316,26 +316,6 @@ export default function Hero() {
       {/* Categories */}
       <Categories />
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          delay: heroTimeline.scrollIndicator.delay,
-          duration: 0.8,
-        }}
-        className="absolute left-1/2 -translate-x-1/2"
-        style={{ bottom: 60 }}
-      >
-        <span
-          className="block w-px h-8 mx-auto"
-          style={{
-            background:
-              "linear-gradient(to bottom, var(--gold-300), transparent)",
-            animation: "scrollPulse 2s ease-in-out infinite",
-          }}
-        />
-      </motion.div>
 
       {/* Footer bar */}
       <FooterBar />
