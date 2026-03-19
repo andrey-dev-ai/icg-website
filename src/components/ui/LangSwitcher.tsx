@@ -15,7 +15,7 @@ export default function LangSwitcher() {
             className="font-light uppercase transition-all duration-300"
             style={{
               fontFamily: "var(--font-body)",
-              fontSize: "0.6rem",
+              fontSize: "0.725rem",
               letterSpacing: "0.12em",
               color: locale === l ? "var(--gold-200)" : "var(--text-tertiary)",
               opacity: locale === l ? 1 : 0.6,

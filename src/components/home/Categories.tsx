@@ -11,6 +11,7 @@ const cards: {
   titleKey: TranslationKey;
   descKey: TranslationKey;
   image: string;
+  titleSize?: string;
 }[] = [
   {
     slug: "construction",
@@ -35,12 +36,14 @@ const cards: {
     titleKey: "cardMining",
     descKey: "cardMiningDesc",
     image: "/images/directions/minerals.png",
+    titleSize: "clamp(0.78rem, 1vw, 0.95rem)",
   },
   {
     slug: "projects",
     titleKey: "cardProjects",
     descKey: "cardProjectsDesc",
     image: "/images/directions/projects.png",
+    titleSize: "clamp(0.78rem, 1vw, 0.95rem)",
   },
 ];
 
@@ -69,9 +72,11 @@ export default function Categories() {
           className="uppercase"
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: "10px",
-            letterSpacing: "3.5px",
-            color: "rgba(184, 154, 90, 0.4)",
+            fontSize: "clamp(0.7rem, 1vw, 0.85rem)",
+            fontWeight: 300,
+            letterSpacing: "0.25em",
+            color: "var(--gold-200)",
+            opacity: 0.5,
           }}
         >
           {t("sectionTitle")}
@@ -79,7 +84,7 @@ export default function Categories() {
       </motion.div>
 
       {/* Cards grid */}
-      <div className="grid gap-[14px] grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid gap-[14px] grid-cols-1 max-[480px]:max-w-[320px] max-[480px]:mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {cards.map((card, i) => {
           const variant = cardVariants[i] || cardVariants[2];
 
@@ -106,34 +111,65 @@ export default function Categories() {
                 duration: 0.9,
                 ease: easings.smooth,
               }}
-              className="group relative flex flex-col items-center text-center cursor-pointer overflow-hidden"
+              className="group relative cursor-pointer overflow-hidden max-[480px]:!aspect-[16/9]"
               style={{
-                background: "rgba(160, 170, 195, 0.08)",
-                border: "1px solid rgba(160, 170, 195, 0.1)",
                 borderRadius: 14,
-                minHeight: 180,
+                border: "1px solid rgba(160, 170, 195, 0.1)",
+                aspectRatio: "3 / 2",
                 transition: "all 0.4s ease",
+                background: "var(--bg-deep)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(160, 170, 195, 0.13)";
-                e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.2)";
+                e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.25)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(160, 170, 195, 0.08)";
                 e.currentTarget.style.borderColor = "rgba(160, 170, 195, 0.1)";
               }}
             >
-              {/* Illustration — covers entire card */}
-              <div className="absolute inset-0 overflow-hidden rounded-[14px]">
-                <Image
-                  src={card.image}
-                  alt={t(card.titleKey)}
-                  fill
-                  sizes="(max-width: 768px) 320px, 280px"
-                  className="opacity-60 group-hover:opacity-95 transition-all duration-500"
-                  style={{ objectFit: "cover" }}
-                  loading="lazy"
-                />
+              {/* Image fills entire card */}
+              <Image
+                src={card.image}
+                alt={t(card.titleKey)}
+                fill
+                sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 20vw"
+                quality={90}
+                className="opacity-65 group-hover:opacity-95 group-hover:scale-[1.02] transition-all duration-500"
+                style={{ objectFit: "cover", objectPosition: "center top", mixBlendMode: "lighten" }}
+              />
+
+              {/* Text overlay — bottom 40% */}
+              <div
+                className="absolute bottom-0 left-0 right-0 flex flex-col justify-start"
+                style={{
+                  height: "40%",
+                  padding: "0 1.2rem 1rem",
+                }}
+              >
+                <h3
+                  className="uppercase"
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: card.titleSize || "clamp(0.925rem, 1.2vw, 1.125rem)",
+                    whiteSpace: "nowrap" as const,
+                    fontWeight: 400,
+                    color: "var(--gold-100)",
+                    letterSpacing: "0.2em",
+                    marginBottom: 6,
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {t(card.titleKey)}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: 11,
+                    color: "var(--text-tertiary)",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {t(card.descKey)}
+                </p>
               </div>
             </motion.a>
           );
