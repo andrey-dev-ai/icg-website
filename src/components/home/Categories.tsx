@@ -12,6 +12,7 @@ const cards: {
   descKey: TranslationKey;
   image: string;
   titleSize?: string;
+
 }[] = [
   {
     slug: "construction",
@@ -85,7 +86,7 @@ export default function Categories() {
       </motion.div>
 
       {/* Cards grid */}
-      <div className="grid gap-[14px] grid-cols-1 max-[480px]:max-w-[320px] max-[480px]:mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid gap-[14px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {cards.map((card, i) => {
           const variant = cardVariants[i] || cardVariants[2];
 
@@ -138,12 +139,12 @@ export default function Categories() {
                 style={{ objectFit: "cover", objectPosition: "center top", mixBlendMode: "lighten" }}
               />
 
-              {/* Text overlay — bottom 35% */}
+              {/* Text overlay — bottom */}
               <div
                 className="absolute bottom-0 left-0 right-0 flex flex-col justify-start"
                 style={{
-                  height: "35%",
-                  padding: "4px 1.2rem 1rem",
+                  height: "42%",
+                  padding: "0.6rem 1.2rem 1rem",
                 }}
               >
                 <h3
