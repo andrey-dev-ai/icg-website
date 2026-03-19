@@ -138,12 +138,12 @@ export default function Categories() {
                 style={{ objectFit: "cover", objectPosition: "center top", mixBlendMode: "lighten" }}
               />
 
-              {/* Text overlay — bottom 40% */}
+              {/* Text overlay — bottom 35% */}
               <div
                 className="absolute bottom-0 left-0 right-0 flex flex-col justify-start"
                 style={{
-                  height: "40%",
-                  padding: "0 1.2rem 1rem",
+                  height: "35%",
+                  padding: "4px 1.2rem 1rem",
                 }}
               >
                 <h3
