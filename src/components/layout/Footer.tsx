@@ -13,26 +13,23 @@ export default function Footer() {
           href="/contacts"
           className="group relative inline-flex items-center justify-center overflow-hidden uppercase transition-all duration-500"
           style={{
-            fontFamily: "var(--font-display)",
+            fontFamily: "var(--font-body)",
             fontSize: 18,
-            fontWeight: 500,
+            fontWeight: 400,
             letterSpacing: "5px",
-            color: "var(--gold-300)",
             border: "1px solid rgba(184, 154, 90, 0.4)",
             borderRadius: 14,
-            padding: "16px 48px",
+            padding: "16px 48px 16px 53px",
             textDecoration: "none",
             background: "transparent",
             transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.7)";
-            e.currentTarget.style.color = "var(--gold-200)";
             e.currentTarget.style.letterSpacing = "4px";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.4)";
-            e.currentTarget.style.color = "var(--gold-300)";
             e.currentTarget.style.letterSpacing = "3px";
           }}
         >
@@ -41,7 +38,17 @@ export default function Footer() {
             className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-all duration-500"
             style={{ background: "rgba(184, 154, 90, 0.12)", zIndex: 0 }}
           />
-          <span className="relative z-10">{t("contacts")}</span>
+          <span
+            className="relative z-10"
+            style={{
+              background: "linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            {t("contacts")}
+          </span>
         </a>
       </footer>
 

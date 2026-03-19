@@ -164,7 +164,7 @@ export default function Hero() {
         {/* ICG letters */}
         <h1
           className="font-[family-name:var(--font-display)] uppercase mb-3 relative overflow-hidden"
-          style={{ fontSize: "clamp(3.6rem, 8vw, 7.5rem)", fontWeight: 300, letterSpacing: "0.35em" }}
+          style={{ fontSize: "clamp(3.6rem, 8vw, 7.5rem)", fontWeight: 300, letterSpacing: "0.35em", paddingLeft: "0.35em" }}
         >
           {letters.map((letter, i) => (
             <motion.span
@@ -198,6 +198,7 @@ export default function Hero() {
               fontFamily: "var(--font-body)",
               fontSize: "clamp(0.9rem, 1.8vw, 1.3rem)",
               fontWeight: 300, letterSpacing: "0.25em",
+              paddingLeft: "0.25em",
               color: "var(--gold-100)",
             }}
           >
