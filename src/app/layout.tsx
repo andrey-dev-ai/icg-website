@@ -1,24 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant, Raleway } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/providers/LenisProvider";
 import LangProvider from "@/providers/LangProvider";
-import StarfieldCanvas from "@/components/ui/StarfieldCanvas";
-
-const cormorant = Cormorant({
-  variable: "--font-display",
-  subsets: ["latin", "cyrillic", "cyrillic-ext"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const raleway = Raleway({
-  variable: "--font-body",
-  subsets: ["latin", "cyrillic", "cyrillic-ext"],
-  weight: ["100", "200", "300", "400", "500"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "ICG — Інвестиції & Промисловість",
   description:
@@ -33,10 +16,9 @@ export default function RootLayout({
   return (
     <html lang="uk" className="dark">
       <body
-        className={`${cormorant.variable} ${raleway.variable} antialiased`}
+        className="antialiased"
       >
         <LangProvider>
-          <StarfieldCanvas />
           <LenisProvider>{children}</LenisProvider>
         </LangProvider>
       </body>

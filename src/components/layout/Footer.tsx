@@ -1,6 +1,7 @@
 "use client";
 
 import { useLang } from "@/providers/LangProvider";
+import LangSwitcher from "@/components/ui/LangSwitcher";
 
 export default function Footer() {
   const { t } = useLang();
@@ -11,61 +12,66 @@ export default function Footer() {
         {/* Contact button — luxury style */}
         <a
           href="/contacts"
-          className="group relative inline-flex items-center justify-center overflow-hidden uppercase transition-all duration-500"
+          className="group relative"
           style={{
             fontFamily: "var(--font-body)",
-            fontSize: 18,
+            fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: 400,
-            letterSpacing: "5px",
-            border: "1px solid rgba(184, 154, 90, 0.4)",
-            borderRadius: 14,
-            padding: "16px 48px 16px 53px",
+            letterSpacing: "0.15em",
             textDecoration: "none",
-            background: "transparent",
-            transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.7)";
-            e.currentTarget.style.letterSpacing = "4px";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.4)";
-            e.currentTarget.style.letterSpacing = "3px";
+            background: "linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            paddingBottom: "0.3rem",
           }}
         >
-          {/* Hover fill — left to right */}
+          {t("contacts")}
+          {/* Animated underline */}
           <span
-            className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-all duration-500"
-            style={{ background: "rgba(184, 154, 90, 0.12)", zIndex: 0 }}
-          />
-          <span
-            className="relative z-10"
+            className="absolute bottom-0 left-0 h-[1px] w-0 group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
             style={{
-              background: "linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              background: "linear-gradient(90deg, var(--gold-300), var(--gold-100), var(--gold-300))",
             }}
-          >
-            {t("contacts")}
-          </span>
+          />
         </a>
       </footer>
 
-      {/* Copyright — fixed bottom-right, LangSwitcher style */}
-      <span
-        className="font-light uppercase mt-6 md:fixed md:bottom-5 md:right-7 md:mt-0"
-        style={{
-          fontFamily: "var(--font-body)",
-          fontSize: "0.725rem",
-          letterSpacing: "0.12em",
-          color: "var(--text-tertiary)",
-          opacity: 0.6,
-          zIndex: 10,
-        }}
-      >
-        © {new Date().getFullYear()} ICG
-      </span>
+      {/* Contact info */}
+      <div className="flex items-center justify-center gap-4 mt-4" style={{ zIndex: 10 }}>
+        <a
+          href="tel:+380443344744"
+          className="transition-colors duration-300 hover:text-[var(--gold-200)]"
+          style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--text-tertiary)", letterSpacing: "0.05em" }}
+        >
+          +380 44 334 47 44
+        </a>
+        <span style={{ color: "var(--text-tertiary)", opacity: 0.3 }}>·</span>
+        <a
+          href="mailto:info@icg.in.ua"
+          className="transition-colors duration-300 hover:text-[var(--gold-200)]"
+          style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--text-tertiary)", letterSpacing: "0.05em" }}
+        >
+          info@icg.in.ua
+        </a>
+      </div>
+
+      {/* Bottom bar — centered: lang switcher + copyright */}
+      <div className="flex flex-col items-center gap-3 mt-6 mb-4" style={{ zIndex: 10 }}>
+        <LangSwitcher />
+        <span
+          className="font-light uppercase"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "0.725rem",
+            letterSpacing: "0.12em",
+            color: "var(--text-tertiary)",
+            opacity: 0.6,
+          }}
+        >
+          © {new Date().getFullYear()} ICG
+        </span>
+      </div>
     </>
   );
 }

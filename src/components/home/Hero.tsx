@@ -7,10 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { heroTimeline, easings } from "@/lib/animations";
 import { useLang } from "@/providers/LangProvider";
-import IcgLogo from "@/components/ui/IcgLogo";
-import LangSwitcher from "@/components/ui/LangSwitcher";
-
-import Metrics from "./Metrics";
+import Image from "next/image";
 import Categories from "./Categories";
 import Footer from "@/components/layout/Footer";
 
@@ -44,7 +41,6 @@ function MotionFadeUp({
 }
 
 export default function Hero() {
-  const letters = ["I", "C", "G"];
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
@@ -88,11 +84,6 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col justify-center items-center px-6 py-[60px] pb-[80px] overflow-hidden"
     >
-      {/* Language switcher — top right */}
-      <div className="absolute top-5 right-6 z-30">
-        <LangSwitcher />
-      </div>
-
       {/* Grid texture */}
       <div
         ref={gridRef}
@@ -147,48 +138,27 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: heroTimeline.logo.delay, type: "spring", ...easings.spring }}
-          className="mx-auto mb-6 relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 2xl:w-32 2xl:h-32"
+          className="mx-auto mb-8 relative w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 2xl:w-52 2xl:h-52"
         >
           <motion.div
-            className="absolute -inset-8 rounded-full"
+            className="absolute -inset-10 rounded-full"
             style={{
               background: "radial-gradient(circle, rgba(212,185,120,0.15) 0%, transparent 70%)",
-              filter: "blur(20px)",
+              filter: "blur(25px)",
             }}
             animate={{ opacity: [0.3, 0.7, 0.3] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
-          <IcgLogo className="w-full h-full relative z-10" />
+          <Image
+            src="/images/icg-logo-v2.png"
+            alt="ICG — Investment Commercial Group"
+            width={208}
+            height={208}
+            className="w-full h-full relative z-10"
+            style={{ filter: "brightness(0.8)" }}
+            priority
+          />
         </motion.div>
-
-        {/* ICG letters */}
-        <h1
-          className="font-[family-name:var(--font-display)] uppercase mb-3 relative overflow-hidden"
-          style={{ fontSize: "clamp(3.6rem, 8vw, 7.5rem)", fontWeight: 300, letterSpacing: "0.35em", paddingLeft: "0.35em" }}
-        >
-          {letters.map((letter, i) => (
-            <motion.span
-              key={letter}
-              initial={{ opacity: 0, filter: "blur(12px)", scale: 1.2 }}
-              animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-              transition={{
-                delay: heroTimeline.letters.delay + i * heroTimeline.letters.stagger,
-                duration: 0.7, ease: smoothEase,
-              }}
-              className="inline-block"
-              style={{
-                background: "linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 30%, var(--gold-100) 50%, var(--gold-300) 70%, var(--gold-200) 100%)",
-                backgroundSize: "200% auto",
-                animation: "shimmer 6s linear infinite",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </h1>
 
         {/* Tagline */}
         <MotionFadeUp delay={heroTimeline.tagline.delay}>
@@ -237,11 +207,6 @@ export default function Hero() {
         >
           {t("slogan")}
         </p>
-      </MotionFadeUp>
-
-      {/* Metrics */}
-      <MotionFadeUp delay={heroTimeline.metrics.delay} className="mb-16">
-        <Metrics />
       </MotionFadeUp>
 
       {/* Categories */}

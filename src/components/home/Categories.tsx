@@ -10,43 +10,42 @@ const cards: {
   slug: string;
   titleKey: TranslationKey;
   descKey: TranslationKey;
-  image: string;
-  titleSize?: string;
-
+  imageFile: string;
 }[] = [
   {
     slug: "construction",
     titleKey: "cardConstruction",
     descKey: "cardConstructionDesc",
-    image: "/images/directions/construction.png",
+    imageFile: "construction.png",
   },
   {
     slug: "realestate",
     titleKey: "cardRealestate",
     descKey: "cardRealestateDesc",
-    image: "/images/directions/realestate.png",
+    imageFile: "realestate.png",
   },
   {
     slug: "production",
     titleKey: "cardProduction",
     descKey: "cardProductionDesc",
-    image: "/images/directions/manufacturing.png",
+    imageFile: "manufacturing.png",
   },
   {
     slug: "mining",
     titleKey: "cardMining",
     descKey: "cardMiningDesc",
-    image: "/images/directions/minerals.png",
-    titleSize: "clamp(0.78rem, 1vw, 0.95rem)",
+    imageFile: "minerals.png",
   },
   {
     slug: "projects",
     titleKey: "cardProjects",
     descKey: "cardProjectsDesc",
-    image: "/images/directions/projects.png",
-    titleSize: "clamp(0.78rem, 1vw, 0.95rem)",
+    imageFile: "projects.png",
   },
 ];
+
+// Языки, для которых есть свои картинки с текстом
+const imageLanguages = ["uk", "ru"];
 
 const cardVariants = [
   { x: -30, y: 20, rotate: -2 },
@@ -57,7 +56,8 @@ const cardVariants = [
 ];
 
 export default function Categories() {
-  const { t } = useLang();
+  const { t, locale } = useLang();
+  const imgLang = imageLanguages.includes(locale) ? locale : "uk";
 
   return (
     <section className="w-full max-w-[1300px] 2xl:max-w-[1500px] mx-auto px-4">
@@ -70,7 +70,7 @@ export default function Categories() {
         style={{ marginTop: "3rem", marginBottom: "1.5rem" }}
       >
         <span
-          className="uppercase"
+          className=""
           style={{
             fontFamily: "var(--font-body)",
             fontSize: "clamp(0.7rem, 1vw, 0.85rem)",
@@ -122,60 +122,34 @@ export default function Categories() {
                 background: "var(--bg-deep)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.25)";
+                e.currentTarget.style.borderColor = "rgba(184, 154, 90, 0.4)";
+                e.currentTarget.style.boxShadow = "0 0 30px rgba(184, 154, 90, 0.15)";
+                e.currentTarget.style.transform = "scale(1.03)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "rgba(160, 170, 195, 0.1)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "scale(1)";
               }}
             >
               {/* Image fills entire card */}
               <Image
-                src={card.image}
+                src={`/images/directions/${imgLang}/${card.imageFile}`}
                 alt={t(card.titleKey)}
                 fill
                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 20vw"
                 quality={90}
-                className="opacity-65 group-hover:opacity-95 group-hover:scale-[1.02] transition-all duration-500"
+                className="opacity-65 group-hover:opacity-95 transition-all duration-500"
                 style={{ objectFit: "cover", objectPosition: "center top", mixBlendMode: "lighten" }}
               />
 
-              {/* Text overlay — bottom */}
-              <div
-                className="absolute bottom-0 left-0 right-0 flex flex-col justify-start"
-                style={{
-                  height: "42%",
-                  padding: "0.6rem 1.2rem 1rem",
-                }}
+              {/* Arrow indicator — appears on hover */}
+              <span
+                className="absolute top-3 right-3 opacity-0 group-hover:opacity-70 transition-opacity duration-400 z-10"
+                style={{ color: "var(--gold-200)", fontSize: "1.2rem" }}
               >
-                <h3
-                  className="uppercase"
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: card.titleSize || "clamp(0.925rem, 1.2vw, 1.125rem)",
-                    whiteSpace: "nowrap" as const,
-                    fontWeight: 400,
-                    background: "linear-gradient(135deg, var(--gold-100) 0%, var(--gold-300) 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                    letterSpacing: "0.2em",
-                    marginBottom: 6,
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {t(card.titleKey)}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: 11,
-                    color: "var(--text-tertiary)",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {t(card.descKey)}
-                </p>
-              </div>
+                →
+              </span>
             </motion.a>
           );
         })}
