@@ -56,6 +56,10 @@ const translations = {
     contactsBackHome: "На головну",
     contactsCallUs: "Зателефонувати",
     contactsRoute: "Прокласти маршрут",
+    contactsFormSending: "Надсилаємо...",
+    contactsFormError: "Не вдалося надіслати. Спробуйте пізніше або зателефонуйте нам.",
+    contactsFormSendAnother: "Надіслати ще",
+    contactsFormRequired: "Заповніть це поле",
   },
   ru: {
     tagline: "Инвестиционно-коммерческая группа",
@@ -104,6 +108,10 @@ const translations = {
     contactsBackHome: "На главную",
     contactsCallUs: "Позвонить",
     contactsRoute: "Проложить маршрут",
+    contactsFormSending: "Отправляем...",
+    contactsFormError: "Не удалось отправить. Попробуйте позже или позвоните нам.",
+    contactsFormSendAnother: "Отправить ещё",
+    contactsFormRequired: "Заполните это поле",
   },
   en: {
     tagline: "Investment & Commercial Group",
@@ -152,6 +160,10 @@ const translations = {
     contactsBackHome: "Back to home",
     contactsCallUs: "Call us",
     contactsRoute: "Get directions",
+    contactsFormSending: "Sending...",
+    contactsFormError: "Failed to send. Please try again or call us.",
+    contactsFormSendAnother: "Send another",
+    contactsFormRequired: "This field is required",
   },
 } as const;
 
